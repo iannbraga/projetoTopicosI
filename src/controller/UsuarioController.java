@@ -1,4 +1,4 @@
-package projetoTopicosI;
+package controller;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
