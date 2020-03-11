@@ -12,18 +12,18 @@ public class UsuarioController {
 	Usuario usuario;
 	
 	public String entrar() {
-		if(getUsuario().getLogin().equals("braga") && getUsuario().getSenha().equals("123")) {
+		if(getUsuario().getLogin().equals("braga") && getUsuario().getSenha().equals("123")
+				|| getUsuario().getLogin().equals("adm") && getUsuario().getSenha().equals("adm")
+					|| getUsuario().getLogin().equals("pedro") && getUsuario().getSenha().equals("321")) {
+			
 			System.out.println("Logado com sucesso!");
-			return "index.xhtml";
+			return "patrimonio.xhtml";
 		}
 		else {
 			return "";
 		}
 	}
 
-	
-	
-	
 	public Usuario getUsuario() {
 		if (usuario == null)
 			usuario = new Usuario();

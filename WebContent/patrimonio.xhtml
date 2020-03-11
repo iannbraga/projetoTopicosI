@@ -1,69 +1,104 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:h="http://xmlns.jcp.org/jsf/html">
-<h:head>
-	<title>Cadastro de Usuário</title>
-</h:head>
+	  xmlns:f="http://xmlns.jcp.org/jsf/core"
+	  xmlns:h="http://xmlns.jcp.org/jsf/html">
+<head>
+	<title></title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+	<link type="text/css" rel="stylesheet" href="resources/materialize/css/materialize.min.css"  media="screen,projection"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	
+	
+</head>
 <h:body>
 	<h:messages style="color:red;margin:8px;" />
-	<h1>.:Cadastro de Patrimonio:.</h1>
 	<h:form>
-		<h:panelGrid columns="2">
-			<h:outputLabel value="Numero Patrimonio" />
-			<h:inputText value="" />
-			
-			<h:outputLabel value="Nome:" />
-			<h:inputText value="#{usuarioController.usuario.nome}" />
-
-			<h:outputLabel value="Login:" />
-			<h:inputText value="#{usuarioController.usuario.login}" />
-
-			<h:outputLabel value="Senha:" />
-			<h:inputSecret value="#{usuarioController.usuario.senha}" />
-
-			<h:outputLabel value="E-mail:" />
-			<h:inputText value="#{usuarioController.usuario.email}" />
-
-		</h:panelGrid>
+		<div class="container" align="center" style="padding: 50px 200px" >
+			<h4>.:Cadastro de Patrimonio:.</h4>
+			<div class="row">
+				<div class="input-field" align="left">
+					ID: <h:inputText value="#{patrimonioController.patrimonio.id}" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field" align="left">
+					N° Patrimonio: <h:inputText value="#{patrimonioController.patrimonio.numeroPatrimonio}" />
+				</div>
+			</div>		
+			<div class="row">
+				<div class="input-field" align="left">
+					N° CP: <h:inputText value="#{patrimonioController.patrimonio.numeroCP}" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field" align="left">
+					Nome: <h:inputText value="#{patrimonioController.patrimonio.nome}" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field" align="left">
+					Marca: <h:inputText value="#{patrimonioController.patrimonio.marca}" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field" align="left">
+					Modelo: <h:inputText value="#{patrimonioController.patrimonio.modelo}" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field" align="left">
+					Valor: <h:inputText value="#{patrimonioController.patrimonio.valor}" />		
+				</div>
+			</div>
+		</div>
 		<h:commandButton value="Incluir"
-			disabled="#{usuarioController.usuario.id != null}"
-			actionListener="#{usuarioController.incluir}" />
+			disabled="#{patrimonioController.patrimonio.id != null}"
+			actionListener="#{patrimonioController.incluir}" />
 		<h:commandButton value="Alterar"
-			disabled="#{usuarioController.usuario.id == null}"
-			actionListener="#{usuarioController.alterar}" />
+			disabled="#{patrimonioController.patrimonio.id == null}"
+			actionListener="#{patrimonioController.alterar}" />
 		<h:commandButton value="Excluir"
-			disabled="#{usuarioController.usuario.id == null}"
-			actionListener="#{usuarioController.remover}" />
+			disabled="#{patrimonioController.patrimonio.id == null}"
+			actionListener="#{patrimonioController.remover}" />
 		<h:commandButton value="Limpar"
-			actionListener="#{usuarioController.limpar}" />
+			actionListener="#{patrimonioController.limpar}" />
 	</h:form>
 	<h:form>
-		<h:dataTable value="#{usuarioController.listaUsuario}" var="obj">
+		<h:dataTable value="#{patrimonioController.listaPatrimonio}" var="obj">
 			<h:column>
 				<f:facet name="header">Id</f:facet>
 				<h:outputLabel value="#{obj.id}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Patrimonio</f:facet>
+				<h:outputLabel value="#{obj.numeroPatrimonio}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">CP</f:facet>
+				<h:outputLabel value="#{obj.numeroCP}" />
 			</h:column>
 			<h:column>
 				<f:facet name="header">Nome</f:facet>
 				<h:outputLabel value="#{obj.nome}" />
 			</h:column>
 			<h:column>
-				<f:facet name="header">Login</f:facet>
-				<h:outputLabel value="#{obj.login}" />
+				<f:facet name="header">Marca</f:facet>
+				<h:outputLabel value="#{obj.marca}" />
 			</h:column>
 			<h:column>
-				<f:facet name="header">Senha</f:facet>
-				<h:outputLabel value="#{obj.senha}" />
+				<f:facet name="header">Modelo</f:facet>
+				<h:outputLabel value="#{obj.modelo}" />
 			</h:column>
 			<h:column>
-				<f:facet name="header">E-mail</f:facet>
-				<h:outputLabel value="#{obj.email}" />
+				<f:facet name="header">Valor</f:facet>
+				<h:outputLabel value="#{obj.valor}" />
 			</h:column>
 			<h:column>
 				<f:facet name="header">Ação</f:facet>
 				<h:commandLink value="Editar"
-					actionListener="#{usuarioController.editar(obj)}" />
+					actionListener="#{patrimonioController.editar(obj)}" />
 			</h:column>
 		</h:dataTable>
 	</h:form>

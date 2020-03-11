@@ -2,23 +2,23 @@ package model;
 
 public class Patrimonio extends Entity<Patrimonio> {
 	
-	private int numeroPatrimonio;
-	private int numeroCP;
+	private Integer numeroPatrimonio;
+	private Integer numeroCP;
 	private String nome;
 	private String marca;
 	private String modelo;
 	private float valor;
-	
-	public int getNumeroPatrimonio() {
+
+	public Integer getNumeroPatrimonio() {
 		return numeroPatrimonio;
 	}
-	public void setNumeroPatrimonio(int numeroPatrimonio) {
+	public void setNumeroPatrimonio(Integer numeroPatrimonio) {
 		this.numeroPatrimonio = numeroPatrimonio;
 	}
-	public int getNumeroCP() {
+	public Integer getNumeroCP() {
 		return numeroCP;
 	}
-	public void setNumeroCP(int numeroCP) {
+	public void setNumeroCP(Integer numeroCP) {
 		this.numeroCP = numeroCP;
 	}
 	public String getNome() {
@@ -45,6 +45,5 @@ public class Patrimonio extends Entity<Patrimonio> {
 	public void setValor(float valor) {
 		this.valor = valor;
 	}
-	
 	
 }
