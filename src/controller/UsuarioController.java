@@ -11,8 +11,6 @@ public class UsuarioController {
 
 	Usuario usuario;
 	
-	
-	
 	public String entrar() {
 		if(getUsuario().getLogin().equals("braga") && getUsuario().getSenha().equals("123")) {
 			System.out.println("Logado com sucesso!");
