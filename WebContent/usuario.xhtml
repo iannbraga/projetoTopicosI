@@ -18,12 +18,12 @@
 	  	<div class="container" align="center" style="padding: 50px 40px">
 	  		<div class="row">
 		        <div class="input-field" align="left">
-		        	Usuario: <h:inputText value="#{usuarioController.usuario}"/>
+		        	Usuario: <h:inputText value="#{usuarioController.usuario.login}"/>
 		        </div>
 			</div>
 			<div class="row">
 		        <div class="input-field" align="left">
-					Senha: <h:inputText value="#{usuarioController.senha}" />
+					Senha: <h:inputText value="#{usuarioController.usuario.senha}" />
 		        </div>
 			</div>
 			<h:commandButton class="waves-effect waves-light btn" value="Entrar" action="#{usuarioController.entrar}"/>

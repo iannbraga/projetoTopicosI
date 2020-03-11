@@ -3,43 +3,37 @@ package controller;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
+import model.Usuario;
+
 @Named
 @RequestScoped
 public class UsuarioController {
 
-	private String usuario;
-	private String senha;
+	Usuario usuario;
+	
+	
 	
 	public String entrar() {
-		
-		if(usuario.equals("braga") && senha.equals("123")) {
+		if(getUsuario().getLogin().equals("braga") && getUsuario().getSenha().equals("123")) {
 			System.out.println("Logado com sucesso!");
-			//return "index.xhtml?faces-redirect=true";
 			return "index.xhtml";
-			
 		}
 		else {
-			return null;
+			return "";
 		}
 	}
 
 	
 	
 	
-	public String getUsuario() {
+	public Usuario getUsuario() {
+		if (usuario == null)
+			usuario = new Usuario();
 		return usuario;
 	}
 
-	public void setUsuario(String usuario) {
+	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
-	}
-
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
 	}
 	
 }
