@@ -19,11 +19,6 @@
 			<h4>.:Cadastro de Patrimonio:.</h4>
 			<div class="row">
 				<div class="input-field" align="left">
-					ID: <h:inputText value="#{patrimonioController.patrimonio.id}" />
-				</div>
-			</div>
-			<div class="row">
-				<div class="input-field" align="left">
 					N° Patrimonio: <h:inputText value="#{patrimonioController.patrimonio.numeroPatrimonio}" />
 				</div>
 			</div>		
@@ -53,19 +48,19 @@
 				</div>
 			</div>
 		</div>
-		<h:commandButton value="Incluir"
-			disabled="#{patrimonioController.patrimonio.id != null}"
-			actionListener="#{patrimonioController.incluir}" />
-		<h:commandButton value="Alterar"
-			disabled="#{patrimonioController.patrimonio.id == null}"
-			actionListener="#{patrimonioController.alterar}" />
-		<h:commandButton value="Excluir"
-			disabled="#{patrimonioController.patrimonio.id == null}"
-			actionListener="#{patrimonioController.remover}" />
-		<h:commandButton value="Limpar"
-			actionListener="#{patrimonioController.limpar}" />
+		<div align="center">
+			<h:commandButton value="Incluir" class="waves-effect waves-light btn" disabled="#{patrimonioController.patrimonio.id != null}" actionListener="#{patrimonioController.incluir}" />
+			
+			<h:commandButton value="Alterar" class="waves-effect waves-light btn" disabled="#{patrimonioController.patrimonio.id == null}" actionListener="#{patrimonioController.alterar}" />
+			
+			<h:commandButton value="Excluir" class="waves-effect waves-light btn" disabled="#{patrimonioController.patrimonio.id == null}" actionListener="#{patrimonioController.remover}" />
+			
+			<h:commandButton value="Limpar" class="waves-effect waves-light btn" actionListener="#{patrimonioController.limpar}" />
+		</div>
+		
 	</h:form>
-	<h:form>
+	
+	<h:form class="col s12">
 		<h:dataTable value="#{patrimonioController.listaPatrimonio}" var="obj">
 			<h:column>
 				<f:facet name="header">Id</f:facet>
@@ -97,10 +92,10 @@
 			</h:column>
 			<h:column>
 				<f:facet name="header">Ação</f:facet>
-				<h:commandLink value="Editar"
-					actionListener="#{patrimonioController.editar(obj)}" />
+				<h:commandLink value="Editar" actionListener="#{patrimonioController.editar(obj)}" />
 			</h:column>
 		</h:dataTable>
 	</h:form>
+
 </h:body>
 </html>

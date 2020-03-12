@@ -5,13 +5,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
+import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 
 import applicaiton.Util;
 import model.Patrimonio;
 
 @Named
-@RequestScoped
+@ViewScoped
 public class PatrimonioController implements Serializable {
 
 	/**
@@ -23,12 +24,8 @@ public class PatrimonioController implements Serializable {
 	private List<Patrimonio> listaPatrimonio;
 	
 	public void incluir() {
-	/*if (getPatrimonio().getNome().isEmpty()) {
-		Util.addErrorMessage("O campo nome deve ser informado.");
-		return;
-	}
-	*/
-		//getPatrimonio().setId(proximoId());
+		
+		getPatrimonio().setId(proximoId());
 		getListaPatrimonio().add(getPatrimonio());
 		limpar();
  	}
@@ -54,7 +51,6 @@ public class PatrimonioController implements Serializable {
 		patrimonio = null;
 	}
 	
-	/*
 	private int proximoId() {
 		int resultado = 0;
 		
@@ -62,9 +58,8 @@ public class PatrimonioController implements Serializable {
 			if (patrimonio.getId() > resultado)
 				resultado = patrimonio.getId();
 		}
-		return ++resultado;
+		return resultado+1;
 	}
-	*/
 	
 	public List<Patrimonio> getListaPatrimonio() {
 		if (listaPatrimonio == null)
